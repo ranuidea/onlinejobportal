@@ -125,12 +125,17 @@
 								placeholder="Password">
 						</div>
 						<div class="form-group">
+							<label for="inputConfirmPassword">Confirm Password</label> <input
+								type="password" class="form-control" id="inputConfirmPassword"
+								placeholder="Confirm Password">
+						</div>
+						<div class="form-group">
 							<label for="inputMobilePhone">Mobile Phone</label> <input
 								type="password" class="form-control" id="inputMobilePhone"
 								placeholder="Mobile Phone">
 						</div>
 						<div class="checkbox">
-							<label><input type="checkbox"> Remember me</label>
+							<label><input type="checkbox"> I agree to the terms and the conditions</label>
 						</div>
 						<button type="submit" class="btn btn-primary">Sign Up</button>
 					</form>
