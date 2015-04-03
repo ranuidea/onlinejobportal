@@ -8,7 +8,7 @@
 	function sendAjax() {
 
 		$.ajax({
-			url : "/RBTech/rest/cont/person",
+			url : "/RBTech/cont/person",
 			type : 'GET',
 			dataType : 'json',
 			data : "{\"name\":\"hmkcode\",\"id\":2}",
@@ -50,8 +50,28 @@
 		</ul>
 
 		<div class="row">
-			<div class="col-sm-4" style="background-color: lavender;">.col-sm-4</div>
-			<div class="col-sm-8" style="background-color: lavenderblush;">.col-sm-8</div>
+			<div class="col-sm-8" style="background-color: lavender;height: 34%">	
+			</div>
+			<div class="col-sm-4"
+				style="background-color: lavenderblush;">
+				<div class="bs-example">
+					<form>
+						<div class="form-group">
+							<label for="inputEmail">Email</label> <input type="email"
+								class="form-control" id="inputEmail" placeholder="Email">
+						</div>
+						<div class="form-group">
+							<label for="inputPassword">Password</label> <input
+								type="password" class="form-control" id="inputPassword"
+								placeholder="Password">
+						</div>
+						<div class="checkbox">
+							<label><input type="checkbox"> Remember me</label>
+						</div>
+						<button type="submit" class="btn btn-primary">Login</button>
+					</form>
+				</div>
+				</div>
 		</div>
 	</div>
 
