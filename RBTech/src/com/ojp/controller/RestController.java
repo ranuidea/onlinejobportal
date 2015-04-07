@@ -29,6 +29,7 @@ public class RestController {
       person.setName("hmk");
  
       return person;
+	  //return "redirect:finalPage";
   }
  
   //this method response to POST request http://localhost/spring-mvc-json/rest/cont/person
