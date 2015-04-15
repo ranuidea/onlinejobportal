@@ -52,20 +52,24 @@ public class CandidateController {
 		candidateAction.addCandidate(candidate);
 		System.out.println(candidate.getId());
 		System.out.println(candidate.getName());
-	      model.addAttribute("name", candidate.getName());
+	      /*model.addAttribute("name", candidate.getName());
 	      model.addAttribute("age", candidate.getAge());
 	     model.addAttribute("id", candidate.getId());
 	     model.addAttribute("address", candidate.getAddress());
-	     model.addAttribute("id", candidate.getQualification());
-	      return showAll(model);
+	     model.addAttribute("id", candidate.getQualification());*/
+	     //List<Candidate> lst = candidateAction.getAllCandidate();
+	     //model.addAttribute("lst", lst);
+	      //return "/candidate/show";
+		return "redirect:/candidate/show";
+	      //return showAll(model);
 	      //return "result";
 	   }
 	
-	public String showAll(ModelMap model)
+	/*public String showAll(ModelMap model)
 	{
 		List<Candidate> lst = candidateAction.getAllCandidate();
 	      //ModelAndView mv = new ModelAndView("/candidate/show"); 
 	      model.addAttribute("lst", lst);
 	      return "/candidate/show";
-	}
+	}*/
 }
