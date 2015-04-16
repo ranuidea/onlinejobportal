@@ -17,6 +17,11 @@ $(document).ready(function() {
 
 </script>
 
+<style>
+    .error {
+        color: red; font-weight: bold;
+    }
+</style>
     <title>Spring MVC Form Handling</title>
 </head>
 <body style=  "background-position:strecth; background-image:url('http://www.pageresource.com/wallpapers/wallpaper/black-and-blue-cubes.jpg');" >
@@ -46,46 +51,62 @@ $(document).ready(function() {
 <div class="col-sm-4"></div>
 <div class="col-sm-4">
 <h2>Candidate Registration</h2>
-<form:form method="POST" action="/candidate/addStudent" modelAttribute="command">
+<form:form method="POST" action="/candidate/addStudent" modelAttribute="command" class="form-horizontal">
    
    
    
     <div class="form-group">
-        <form:label path="id">ID</form:label>
+        <form:label path="id" class="control-label col-sm-2">ID</form:label>
+        <div class="col-sm-10">
         <form:input path="id" class="form-control" placeholder="ID"/>
         </div>
-    
+    </div>
     
     
     <div class="form-group">
-        <form:label path="name" style="color: white;">Name</form:label>
+        <form:label path="name" class="control-label col-sm-2">Name</form:label>
+        <div class="col-sm-10">
         <form:input path="name" class="form-control" placeholder="Name"/>
+        <form:errors path="name" cssClass="error"/>
+        </div>
         </div>
     
     
     
     <div class="form-group">
-        <form:label path="age">Age</form:label>
+        <form:label path="age" class="control-label col-sm-2">Age</form:label>
+        <div class="col-sm-10">
         <form:input path="age" class="form-control"/>
+        <form:errors path="age" cssClass="error"/>
+        </div>
         </div>
     
     
     
     <div class="form-group">
-        <form:label path="address">Address</form:label>
+        <form:label path="address" class="control-label col-sm-2">Address</form:label>
+        <div class="col-sm-10">
         <form:input path="address" class="form-control" placeholder="Address"/>
+        <form:errors path="address" cssClass="error"/>
+        </div>
         </div>
     
     
     
     <div class="form-group">
-        <form:label path="qualification">qualification</form:label>
+        <form:label path="qualification" class="control-label col-sm-2">qualification</form:label>
+        <div class="col-sm-10">
         <form:input path="qualification" class="form-control" placeholder="Qualification"/>
+        <form:errors path="qualification" cssClass="error"/>
+        </div>
         </div>
     
     
-        
+    <div class="form-group">  
+    <div class="col-sm-offset-2 col-sm-10">  
             <input type="submit" value="Submit" class="btn btn-primary"/>
+            </div>
+            </div>
         
     
 

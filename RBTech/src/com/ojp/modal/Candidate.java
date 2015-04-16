@@ -1,9 +1,20 @@
 package com.ojp.modal;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.NotEmpty;
+
 public class Candidate {
 
+	
 	int id;
+	
+	@NotEmpty
 	String name;
+	
+	@NotNull(message = "Please enter your password.")
+    @Min(18)
 	int age;
 	public int getAge() {
 		return age;
@@ -11,7 +22,11 @@ public class Candidate {
 	public void setAge(int age) {
 		this.age = age;
 	}
+	
+	@NotEmpty
 	String address;
+	
+	@NotEmpty
 	String qualification;
 	public int getId() {
 		return id;
