@@ -62,7 +62,6 @@ public class CandidateDAO {
 		Connection conn = null;
 		//Statement stmt = null;
 		PreparedStatement stmt = null;
-		List lst = new ArrayList<Candidate>();
 		try{
 	//STEP 2: Register JDBC driver
       Class.forName("com.mysql.jdbc.Driver");

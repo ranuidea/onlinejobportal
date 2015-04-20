@@ -43,8 +43,9 @@ $(document).ready(function() {
 			<li style="font-size: large;"><a href="#"><span class="glyphicon glyphicon-registration-mark"></span> Recruiters</a></li>
 			<li style="font-size: large;"><a href="#"><span class="glyphicon glyphicon-briefcase"> Companies</span></a></li>
 			<li style="font-size: large;"><a href="#"><span class="glyphicon glyphicon-signal"> CareerResources</span></a></li>
-			<li style="font-size: large;"><a href="#"><span class="glyphicon glyphicon-Phone"></span> Contact Us</a></li>
-			<li style="font-size: large;"><a href="#"><span class="glyphicon glyphicon-Paperclip"></span> More</a></li>
+			<li style="font-size: large;"><a href="<c:url value="/contact"/>"><span class="glyphicon glyphicon-Phone"></span> Contact Us</a></li>
+			<li style="font-size: large;"><a href="<c:url value="/about"/>"><span class="glyphicon glyphicon-Paperclip"></span> About Us</a></li>
+			<li style="font-size: large;"><a href="<c:url value='/j_spring_security_logout' />"><span class="glyphicon glyphicon-Paperclip"></span> Logout</a></li>
 		</ul>
 
 <div class="row">
