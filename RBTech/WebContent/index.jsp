@@ -26,11 +26,15 @@
 	}
  */</script>
  <style>
- .navbar-custom {
-    background-color:#ecf0f1;
-    color:#ffffff;
-    border-radius:0;
+.navbar-custom {
+	background-color: #003399;
+	color: #ffffff;
+	border-radius: 0;
 }
+.color-font-nabbar{
+	color: white;
+}
+
  </style>
 
 <head>
@@ -56,14 +60,14 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">RBTech</a>
+      <a class="navbar-brand color-font-nabbar" href="#">RBTech</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Candidates <span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Companies</a></li>
+        <li class="active"><a href="#" class="color-font-nabbar">Candidates <span class="sr-only">(current)</span></a></li>
+        <li><a href="#" class="color-font-nabbar">Companies</a></li>
         <!-- <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
@@ -76,9 +80,9 @@
             <li><a href="#">One more separated link</a></li>
           </ul>
         </li> -->
-        <li><a href="#">How it Works</a></li>
-        <li><a href="#">Contact Us</a></li>
-        <li><a href="#">About Us</a></li>
+        <li><a href="#" class="color-font-nabbar">How it Works</a></li>
+        <li><a href="#" class="color-font-nabbar">Contact Us</a></li>
+        <li><a href="#" class="color-font-nabbar">About Us</a></li>
       </ul>
       <!-- <form class="navbar-form navbar-left" role="search">
         <div class="form-group">
@@ -87,7 +91,7 @@
         <button type="submit" class="btn btn-default">Submit</button>
       </form> -->
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="<c:url value="/login"/>">Log In</a></li>
+        <li><a href="<c:url value="/login"/>" class="color-font-nabbar">Log In</a></li>
         <!-- <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
@@ -98,7 +102,7 @@
             <li><a href="#">Separated link</a></li>
           </ul>
         </li> -->
-        <li><a href="#">Sign Up</a></li>
+        <li><a href="<c:url value="/user/single_sign_up"/>" class="color-font-nabbar">Sign Up</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

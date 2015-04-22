@@ -1,3 +1,6 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+
 <html>
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script type="text/javascript">
@@ -66,10 +69,10 @@
 				<div class="collapse navbar-collapse"
 					id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
-						<li class="active"><a href="#" class="color-font-nabbar">Candidates <span
+						<!-- <li class="active"><a href="#" class="color-font-nabbar">Candidates <span
 								class="sr-only">(current)</span></a></li>
 						<li><a href="#" class="color-font-nabbar">Companies</a></li>
-						<!-- <li class="dropdown">
+						<li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li><a href="#">Action</a></li>
@@ -80,10 +83,10 @@
             <li class="divider"></li>
             <li><a href="#">One more separated link</a></li>
           </ul>
-        </li> -->
+        </li>
 						<li><a href="#" class="color-font-nabbar">How it Works</a></li>
 						<li><a href="#" class="color-font-nabbar">Contact Us</a></li>
-						<li><a href="#" class="color-font-nabbar">About Us</a></li>
+						<li><a href="#" class="color-font-nabbar">About Us</a></li> -->
 					</ul>
 					<!-- <form class="navbar-form navbar-left" role="search">
         <div class="form-group">
@@ -92,7 +95,7 @@
         <button type="submit" class="btn btn-default">Submit</button>
       </form> -->
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="#" class="color-font-nabbar">Log In</a></li>
+						<li><a href="<c:url value="/login"/>" class="color-font-nabbar">Log In</a></li>
 						<!-- <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
@@ -103,7 +106,7 @@
             <li><a href="#">Separated link</a></li>
           </ul>
         </li> -->
-						<li><a href="#" class="color-font-nabbar">Sign Up</a></li>
+						<!-- <li><a href="#" class="color-font-nabbar">Sign Up</a></li> -->
 					</ul>
 				</div>
 				<!-- /.navbar-collapse -->
