@@ -76,7 +76,7 @@ public class CandidateDAO {
       sql = "insert into candidate values(?,?,?,?,?)";
       stmt = conn.prepareStatement(sql);
       stmt.setInt(1, candidate.getId());
-      stmt.setString(2, candidate.getName());
+      stmt.setString(2, candidate.getFirstName());
       stmt.setInt(3, candidate.getAge());
       stmt.setString(4, candidate.getAddress());
       stmt.setString(5, candidate.getQualification());

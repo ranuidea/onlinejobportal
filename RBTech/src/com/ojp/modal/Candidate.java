@@ -11,7 +11,9 @@ public class Candidate {
 	int id;
 	
 	@NotEmpty
-	String name;
+	String firstName;
+	
+	String lastName;
 	
 	@NotNull(message = "Please enter your password.")
     @Min(18)
@@ -34,11 +36,18 @@ public class Candidate {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getName() {
-		return name;
+	public String getFirstName() {
+		return firstName;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setName(String firstName) {
+		this.firstName = firstName;
+	}
+	
+	public String getLastName() {
+		return lastName;
+	}
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 	public String getAddress() {
 		return address;

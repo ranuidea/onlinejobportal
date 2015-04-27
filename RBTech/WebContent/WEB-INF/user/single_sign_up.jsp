@@ -114,6 +114,15 @@
 			<!-- /.container-fluid -->
 		</nav>
 
+	<div class="col-sm-2"></div>
+	<div class="col-sm-8" style="align-content: center;">
+	<form:form method="POST" action="/user/single_sign_up" >
+		<button type="submit" name="userType" value="candidate" class="btn btn-default btn-lg" style="margin-top: 15%; margin-left: 25%">Candidate</button>
+		<button type="submit" name="userType" value="consaltancy" class="btn btn-default btn-lg" style="margin-top: 15%;">Consaltancy</button>
+		<button type="submit" name="userType" value="company" class="btn btn-default btn-lg" style="margin-top: 15%;">Company</button>
+		</form:form>
+	</div>
+	<div class="col-sm-2"></div>
 	</div>
 </body>
 

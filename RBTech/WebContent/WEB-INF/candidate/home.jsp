@@ -1,120 +1,120 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-
-<%@ taglib  uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <html>
-<head>
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script type="text/javascript">
+	/* $(document).ready(function() {
+		sendAjax();
+	});
 
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	function sendAjax() {
 
-<script>
-$(document).ready(function() {
+		$.ajax({
+			url : "/RBTech/cont/person",
+			type : 'GET',
+			dataType : 'json',
+			data : "{\"name\":\"hmkcode\",\"id\":2}",
+			contentType : 'application/json',
+			mimeType : 'application/json',
+			success : function(data) {
+				alert(data.id + " " + data.name);
+			},
+			error : function(data, status, er) {
+				alert("error: " + data + " status: " + status + " er:" + er);
+			}
 		});
-
-</script>
-
+	}
+ */</script>
 <style>
-    .error {
-        color: red; font-weight: bold;
-    }
+.navbar-custom {
+	background-color: #003399;
+	color: #ffffff;
+	border-radius: 0;
+}
+.color-font-nabbar{
+	color: white;
+}
 </style>
-    <title>Spring MVC Form Handling</title>
+
+<head>
+<title></title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 </head>
-<body style=  "background-position:strecth; background-image:url('http://www.pageresource.com/wallpapers/wallpaper/black-and-blue-cubes.jpg');" >
+<body>
+	<div class="container-fluid"
+		style="background: transparent; color: white;">
 
-<div class="container-fluid" style="background:transparent; color: white;">
+		<nav class="navbar navbar-fixed-top navbar-custom">
+			<div class="container-fluid">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed"
+						data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span> <span
+							class="icon-bar"></span> <span class="icon-bar"></span> <span
+							class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand color-font-nabbar" href="#">RBTech</a>
+				</div>
 
-<ul class="nav nav-pills">
-			<li style="color: black;font-size: large;"><a href="http://localhost:8080/RBTech/ModernJob.jsp">
-			<span class="glyphicon glyphicon-home"></span> Home </a>
-			</li>
-			<li class="dropdown" style="font-size: large;">
-			<a href="#" data-toggle="dropdown" class="dropdown-toggle"><span class="glyphicon glyphicon-education"></span>Candidate<b class="caret"></b></a>
-			<ul class="dropdown-menu">
-			<li><a class="Menu2_link" href="<c:url value="/candidate/home"/>" >Add</a></li>
-			<li><a class="Menu2_link" href="<c:url value="/candidate/show"/>" >Show All</a></li>
-			<li><a class="Menu2_link" href="#" >Jobs By Function</a></li>
-			</ul>
-			</li>
-			<li style="font-size: large;"><a href="#"><span class="glyphicon glyphicon-registration-mark"></span> Recruiters</a></li>
-			<li style="font-size: large;"><a href="#"><span class="glyphicon glyphicon-briefcase"> Companies</span></a></li>
-			<li style="font-size: large;"><a href="#"><span class="glyphicon glyphicon-signal"> CareerResources</span></a></li>
-			<li style="font-size: large;"><a href="<c:url value="/contact"/>"><span class="glyphicon glyphicon-Phone"></span> Contact Us</a></li>
-			<li style="font-size: large;"><a href="<c:url value="/about"/>"><span class="glyphicon glyphicon-Paperclip"></span> About Us</a></li>
-			<li style="font-size: large;"><a href="<c:url value='/j_spring_security_logout' />"><span class="glyphicon glyphicon-Paperclip"></span> Logout</a></li>
-		</ul>
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse"
+					id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li class="active"><a href="#" class="color-font-nabbar">Upload Resume <span class="sr-only">(current)</span></a></li>
+						<!-- <li><a href="#" class="color-font-nabbar">Companies</a></li> -->
+						<!-- <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+            <li class="divider"></li>
+            <li><a href="#">One more separated link</a></li>
+          </ul>
+        </li> -->
+						<li><a href="#" class="color-font-nabbar">How it Works</a></li>
+						<li><a href="#" class="color-font-nabbar">Contact Us</a></li>
+						<li><a href="#" class="color-font-nabbar">About Us</a></li>
+					</ul>
+					<!-- <form class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form> -->
+					<ul class="nav navbar-nav navbar-right">
+						<!-- <li><a href="#" class="color-font-nabbar">Log In</a></li> -->
+						<!-- <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </li> -->
+						<li style="font-size: large; margin-top: 4%;">Welcome ${userDetails.username}</li>
+						<li style="font-size: large;"><a href="<c:url value='/j_spring_security_logout' />" class="color-font-nabbar"><span></span> Logout</a></li>
+					</ul>
+				</div>
+				<!-- /.navbar-collapse -->
+			</div>
+			<!-- /.container-fluid -->
+		</nav>
 
-<div class="row">
-<div class="col-sm-4"></div>
-<div class="col-sm-4">
-<h2>Candidate Registration</h2>
-<form:form method="POST" action="/candidate/addStudent" modelAttribute="command" class="form-horizontal">
-   
-   
-   
-    <div class="form-group">
-        <form:label path="id" class="control-label col-sm-2">ID</form:label>
-        <div class="col-sm-10">
-        <form:input path="id" class="form-control" placeholder="ID"/>
-        </div>
-    </div>
-    
-    
-    <div class="form-group">
-        <form:label path="name" class="control-label col-sm-2">Name</form:label>
-        <div class="col-sm-10">
-        <form:input path="name" class="form-control" placeholder="Name"/>
-        <form:errors path="name" cssClass="error"/>
-        </div>
-        </div>
-    
-    
-    
-    <div class="form-group">
-        <form:label path="age" class="control-label col-sm-2">Age</form:label>
-        <div class="col-sm-10">
-        <form:input path="age" class="form-control"/>
-        <form:errors path="age" cssClass="error"/>
-        </div>
-        </div>
-    
-    
-    
-    <div class="form-group">
-        <form:label path="address" class="control-label col-sm-2">Address</form:label>
-        <div class="col-sm-10">
-        <form:input path="address" class="form-control" placeholder="Address"/>
-        <form:errors path="address" cssClass="error"/>
-        </div>
-        </div>
-    
-    
-    
-    <div class="form-group">
-        <form:label path="qualification" class="control-label col-sm-2">qualification</form:label>
-        <div class="col-sm-10">
-        <form:input path="qualification" class="form-control" placeholder="Qualification"/>
-        <form:errors path="qualification" cssClass="error"/>
-        </div>
-        </div>
-    
-    
-    <div class="form-group">  
-    <div class="col-sm-offset-2 col-sm-10">  
-            <input type="submit" value="Submit" class="btn btn-primary"/>
-            </div>
-            </div>
-        
-    
-
-</form:form>
-</div>
-<div class="col-sm-4"></div>
-</div>
-</div>
+	</div>
 </body>
+
+
 </html>

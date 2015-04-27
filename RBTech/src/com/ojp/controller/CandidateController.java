@@ -2,10 +2,13 @@ package com.ojp.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -43,10 +46,18 @@ public class CandidateController {
 	  }
 	
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
-	   public String candidateHome(Model model) {
+	   public String candidateHome(Model model, HttpServletRequest request) {
 	     //return new ModelAndView("home", "command", new Candidate());
-		if(!model.containsAttribute("command"))
+		if(!model.containsAttribute("command")){
 	      model.addAttribute("command",new Candidate());
+	      Object principal = SecurityContextHolder.getContext()
+				     .getAuthentication().getPrincipal();
+				HttpSession session = request.getSession(true); //create a new session
+
+				// put the UserDetails object here.
+				session.setAttribute("userDetails", principal);
+
+		}
 	      return "/candidate/home";
 	   }
 	

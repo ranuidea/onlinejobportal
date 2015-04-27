@@ -14,14 +14,14 @@ public class UserService {
     private UserDAO repository;
 	
 	@Transactional
-    public User registerNewUserAccount(User accountDto) throws Exception {
+    public User registerNewUserAccount(User user) throws Exception {
         //if (emailExist(accountDto.getEmail())) {  
             //throw new Exception("There is an account with that email adress: ");
             
-            User user = new User();    
-            user.setUserName(accountDto.getUserName());
+            //User user = new User();    
+            //user.setUserName(accountDto.getUserName());
             //user.setLastName(accountDto.getLastName());
-            user.setPassword(accountDto.getPassword());
+            //user.setPassword(accountDto.getPassword());
             //user.setEmail(accountDto.getEmail());
             //user.setRole(new Role(Integer.valueOf(1), user));
             return repository.saveUser(user); 
@@ -35,5 +35,23 @@ public class UserService {
             return true;
         }
         return false;
+    }*/
+	
+	@Transactional
+    public User registerNewCandidateUserAccount(User user, String firstName, String lastName) {
+        //if (emailExist(accountDto.getEmail())) {  
+            //throw new Exception("There is an account with that email adress: ");
+            
+            //User user = new User();    
+            //user.setUserName(accountDto.getUserName());
+            //user.setLastName(accountDto.getLastName());
+            //user.setPassword(accountDto.getPassword());
+            //user.setEmail(accountDto.getEmail());
+            //user.setRole(new Role(Integer.valueOf(1), user));
+            return repository.saveCandidateUser(user, firstName, lastName); 
+        //}
+        
+        // the rest of the registration operation
     }
-*/}
+	
+	}
