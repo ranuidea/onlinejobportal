@@ -81,8 +81,8 @@
           </ul>
         </li> -->
         <li><a href="#" class="color-font-nabbar">How it Works</a></li>
-        <li><a href="#" class="color-font-nabbar">Contact Us</a></li>
-        <li><a href="#" class="color-font-nabbar">About Us</a></li>
+        <li><a href="<c:url value="/contact"/>" class="color-font-nabbar">Contact Us</a></li>
+        <li><a href="<c:url value="/about"/>" class="color-font-nabbar">About Us</a></li>
       </ul>
       <!-- <form class="navbar-form navbar-left" role="search">
         <div class="form-group">

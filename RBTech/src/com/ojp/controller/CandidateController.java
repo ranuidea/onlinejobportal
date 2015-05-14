@@ -48,8 +48,8 @@ public class CandidateController {
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	   public String candidateHome(Model model, HttpServletRequest request) {
 	     //return new ModelAndView("home", "command", new Candidate());
-		if(!model.containsAttribute("command")){
-	      model.addAttribute("command",new Candidate());
+		//if(!model.containsAttribute("command")){
+	      //model.addAttribute("command",new Candidate());
 	      Object principal = SecurityContextHolder.getContext()
 				     .getAuthentication().getPrincipal();
 				HttpSession session = request.getSession(true); //create a new session
@@ -57,7 +57,7 @@ public class CandidateController {
 				// put the UserDetails object here.
 				session.setAttribute("userDetails", principal);
 
-		}
+		//}
 	      return "/candidate/home";
 	   }
 	

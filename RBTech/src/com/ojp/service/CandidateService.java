@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.ojp.dao.CandidateDAO;
 import com.ojp.modal.Candidate;
+import com.ojp.modal.PersonalDetail;
 
 @Service("candidateService")
 public class CandidateService {
@@ -22,5 +23,15 @@ public class CandidateService {
 	public Boolean addCandidate(Candidate candidate)
 	{
 		return candidateDAO.addCandidate(candidate);
+	}
+	
+	public Boolean saveCandidatePersonalDetails(PersonalDetail personalDetail, String userName)
+	{
+		return candidateDAO.saveCandidatePersonalDetails(personalDetail, userName);
+	}
+	
+	public PersonalDetail getCandidateByUserName(String userName)
+	{
+		return candidateDAO.getCandidateByUserName(userName);
 	}
 }

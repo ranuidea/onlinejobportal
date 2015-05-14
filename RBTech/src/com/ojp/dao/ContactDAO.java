@@ -16,9 +16,9 @@ import com.ojp.modal.Contact;
 @Repository("contactDao")
 public class ContactDAO {
 
-	static final String DB_URL = "jdbc:mysql://localhost/ojp1";
+	static final String DB_URL = "jdbc:mysql://23.94.156.185:3306/ojp1";
 //  Database credentials
-   static final String USER = "root";
+   static final String USER = "dba";
    static final String PASS = "password";
 	public Boolean saveContact(Contact contact)
 	{

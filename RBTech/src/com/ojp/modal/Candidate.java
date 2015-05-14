@@ -7,35 +7,17 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 public class Candidate {
 
-	
 	int id;
+	private PersonalDetail personalDetail;
+	private EducationalDetail educationalDetail;
+	private ProfessionalDetail professionalDetail;
 	
 	@NotEmpty
-	String firstName;
+	private String firstName;
 	
-	String lastName;
+	private String lastName;
 	
-	@NotNull(message = "Please enter your password.")
-    @Min(18)
-	int age;
-	public int getAge() {
-		return age;
-	}
-	public void setAge(int age) {
-		this.age = age;
-	}
 	
-	@NotEmpty
-	String address;
-	
-	@NotEmpty
-	String qualification;
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
 	public String getFirstName() {
 		return firstName;
 	}
@@ -49,7 +31,23 @@ public class Candidate {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	public String getAddress() {
+	public PersonalDetail getPersonalDetail() {
+		return personalDetail;
+	}
+	public void setPersonalDetail(PersonalDetail personalDetail) {
+		this.personalDetail = personalDetail;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+	
+	/*public String getAddress() {
 		return address;
 	}
 	public void setAddress(String address) {
@@ -61,4 +59,4 @@ public class Candidate {
 	public void setQualification(String qualification) {
 		this.qualification = qualification;
 	}
-}
+*/}

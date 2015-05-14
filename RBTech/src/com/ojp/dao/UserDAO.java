@@ -13,8 +13,10 @@ import com.ojp.modal.User;
 @Repository("userDao")
 public class UserDAO {
 
-	static final String DB_URL = "jdbc:mysql://localhost/ojp1";
+	//static final String DB_URL = "jdbc:mysql://23.94.156.185:3306/ojp1";
+	static final String DB_URL = "jdbc:mysql://localhost:3306/ojp1";
 	// Database credentials
+	//static final String USER = "dba";
 	static final String USER = "root";
 	static final String PASS = "password";
 
@@ -91,15 +93,16 @@ public class UserDAO {
 
 			int rs1 = stmt.executeUpdate();
 			
-			sql = "insert into candidate(first_name, last_name) values(?,?)";
+			sql = "insert into personal_details(username, first_name, last_name) values(?,?,?)";
 			stmt = conn.prepareStatement(sql);
-			stmt.setString(1, firstName);
-			stmt.setString(2, lastName);
+			stmt.setString(1, user.getUserName());
+			stmt.setString(2, firstName);
+			stmt.setString(3, lastName);
 
 			int rs2 = stmt.executeUpdate();
 
 			return user;
-		} catch (Exception e) {
+		} catch (Exception e) {e.printStackTrace();
 			return null;
 		}
 	}

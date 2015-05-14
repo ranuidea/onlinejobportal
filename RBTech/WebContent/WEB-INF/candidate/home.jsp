@@ -68,7 +68,7 @@
 				<div class="collapse navbar-collapse"
 					id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
-						<li class="active"><a href="#" class="color-font-nabbar">Upload Resume <span class="sr-only">(current)</span></a></li>
+						<li class="active"><a href="<c:url value='/upload/personal' />" class="color-font-nabbar">Upload Resume <span class="sr-only">(current)</span></a></li>
 						<!-- <li><a href="#" class="color-font-nabbar">Companies</a></li> -->
 						<!-- <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>

@@ -1,21 +1,45 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+<script type="text/javascript"
+	src="<%=request.getContextPath()%>/resources/js/bootstrap-datepicker.min.js"></script>
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-<script
-	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-
+<link rel="stylesheet"
+	href="<%=request.getContextPath()%>/resources/css/bootstrap-datepicker.min.css" />
 <script type="text/javascript">
-</script>
+	 	$(document).ready(function() {
+		 
+			$('#date-picker')
+	        .datepicker({
+	            format: 'mm/dd/yyyy',
+	            pickerPosition: "bottom-left",
+	            autoclose: true,
+	        })
+	        .on('changeDate', function(e) {
+	            // Revalidate the date field
+	        	       $('.datepicker').hide();
+	        });
+			
+			$('#date-picker2')
+	        .datepicker({
+	            format: 'mm/dd/yyyy',
+	            pickerPosition: "bottom-left",
+	            autoclose: true,
+	        })
+	        .on('changeDate', function(e) {
+	            // Revalidate the date field
+	        	       $('.datepicker').hide();
+	        });
+		});
+	</script>
 <style>
 .navbar-custom {
 	background-color: #003399;
@@ -27,21 +51,12 @@
 	color: white;
 }
 
-.top50 {
-	margin-top: 50px;
-}
-
-.error {
-	color: red;
-	font-weight: bold;
-}
-
 login {
 	padding-top: 50px
 }
 
 #login .form-wrap {
-	width: 30%;
+	width: 70%;
 	margin: 0 auto;
 	margin-top: 15%;
 }
@@ -151,6 +166,7 @@ login {
 <title></title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 </head>
 <body>
 	<div class="container-fluid"
@@ -166,97 +182,56 @@ login {
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand color-font-nabbar" href="<c:url value="/"/>">RBTech</a>
+				<a class="navbar-brand color-font-nabbar" href="#">RBTech</a>
 			</div>
-		</nav>
 
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse"
+				id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#" class="color-font-nabbar">Candidates
+							<span class="sr-only">(current)</span>
+					</a></li>
+					<li><a href="#" class="color-font-nabbar">Companies</a></li>
+					<li><a href="#" class="color-font-nabbar">How it Works</a></li>
+					<li><a href="#" class="color-font-nabbar">Contact Us</a></li>
+					<li><a href="#" class="color-font-nabbar">About Us</a></li>
+				</ul>
+
+				<ul class="nav navbar-nav navbar-right">
+					<li style="font-size: large; margin-top: 4%;">Welcome
+						${userDetails.username}</li>
+					<li style="font-size: large;"><a
+						href="<c:url value='/j_spring_security_logout' />"
+						class="color-font-nabbar"><span></span> Logout</a></li>
+				</ul>
+			</div>
+			<!-- /.navbar-collapse -->
+		</div>
+		<!-- /.container-fluid --> </nav>
 
 		<section id="login">
 		<div class="container">
-			<div class="row">
-				<div class="col-xs-12">
-					<div class="form-wrap">
+			<div class="row" style="margin-top: 7%">
+				
+				<form:form method="post" enctype="multipart/form-data" modelAttribute="uploadedFile" action="/upload/fileUpload">
 
-						<% 
-					String errorString = (String)request.getAttribute("error");
-					if(errorString != null && errorString.trim().equals("true")){
-						out.println("<p style='color: red;'>Incorrect login name or password.</p>");
-					}
-				%>
-
-
-						<h1>Log in with your email account</h1>
-						<form role="form"
-							action="<c:url value='j_spring_security_check' />" method="post"
-							id="login-form" autocomplete="off">
-							<div class="form-group">
-								<label for="email" class="sr-only">Email</label> <input
-									type="email" name="j_username" id="email" class="form-control"
-									placeholder="somebody@example.com" required autofocus>
-							</div>
-							<div class="form-group">
-								<label for="key" class="sr-only">Password</label> <input
-									type="password" name="j_password" id="key" class="form-control"
-									placeholder="Password" required>
-							</div>
-							<div class="checkbox">
-								<span class="character-checkbox" onclick="showPassword()"></span>
-								<span class="label">Show password</span>
-							</div>
-							<input type="submit" id="btn-login"
-								class="btn btn-custom btn-lg btn-block" value="Log in">
-						</form>
-						<a href="javascript:;" class="forget" data-toggle="modal"
-							data-target=".forget-modal">Forgot your password?</a>
-						<hr>
+					<div class="form-group">
+						<div class="col-xs-6">
+							<input type="file" name="file" class="form-control"/>
+							<form:errors path="file" />
+						</div>
+						<div class="col-xs-2">
+							<input type="submit" value="Upload" class="btn btn-custom btn-lg btn-block"/>
+						</div>
 					</div>
-				</div>
-				<!-- /.col-xs-12 -->
+
+				</form:form>  
+				
 			</div>
+			/////////
 		</div>
 		</section>
-
-
-		<div class="modal fade forget-modal" tabindex="-1" role="dialog"
-			aria-labelledby="myForgetModalLabel" aria-hidden="true">
-			<div class="modal-dialog modal-sm">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal">
-							<span aria-hidden="true">×</span> <span class="sr-only">Close</span>
-						</button>
-						<h4 class="modal-title">Recovery password</h4>
-					</div>
-					<div class="modal-body">
-						<p>Type your email account</p>
-						<input type="email" name="recovery-email" id="recovery-email"
-							class="form-control" autocomplete="off">
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-						<button type="button" class="btn btn-custom">Recovery</button>
-					</div>
-				</div>
-				<!-- /.modal-content -->
-			</div>
-			<!-- /.modal-dialog -->
-		</div>
-		<!-- /.modal -->
-
-		<footer id="footer">
-		<div class="container">
-			<div class="row">
-				<div class="col-xs-12">
-					<p>Page © - 2014</p>
-					<p>
-						Powered by <strong><a href="#" target="_blank">RB
-								Tech</a></strong>
-					</p>
-				</div>
-			</div>
-		</div>
-		</footer>
 	</div>
 </body>
-
 </html>
