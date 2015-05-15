@@ -7,7 +7,9 @@ import org.springframework.stereotype.Service;
 
 import com.ojp.dao.CandidateDAO;
 import com.ojp.modal.Candidate;
+import com.ojp.modal.EducationalDetail;
 import com.ojp.modal.PersonalDetail;
+import com.ojp.modal.ProfessionalDetail;
 
 @Service("candidateService")
 public class CandidateService {
@@ -30,8 +32,28 @@ public class CandidateService {
 		return candidateDAO.saveCandidatePersonalDetails(personalDetail, userName);
 	}
 	
-	public PersonalDetail getCandidateByUserName(String userName)
+	public PersonalDetail getCandidatePersonalDetailByUserName(String userName)
 	{
-		return candidateDAO.getCandidateByUserName(userName);
+		return candidateDAO.getCandidatePersonalDetailByUserName(userName);
+	}
+	
+	public Boolean saveCandidateEducationalDetails(EducationalDetail educationalDetail, String userName)
+	{
+		return candidateDAO.saveCandidateEducationalDetails(educationalDetail, userName);
+	}
+	
+	public Boolean saveCandidateProfessionalDetails(ProfessionalDetail professionalDetail, String userName)
+	{
+		return candidateDAO.saveCandidateProfessionalDetails(professionalDetail, userName);
+	}
+	
+	public EducationalDetail getCandidateEducationalDetailByUserName(String userName)
+	{
+		return candidateDAO.getCandidateEducationalDetailByUserName(userName);
+	}
+	
+	public ProfessionalDetail getCandidateProfessionalDetailByUserName(String userName)
+	{
+		return candidateDAO.getCandidateProfessionalDetailByUserName(userName);
 	}
 }

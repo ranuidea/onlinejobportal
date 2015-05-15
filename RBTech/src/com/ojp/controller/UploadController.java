@@ -24,6 +24,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.ojp.modal.Candidate;
 import com.ojp.modal.EducationalDetail;
 import com.ojp.modal.PersonalDetail;
+import com.ojp.modal.ProfessionalDetail;
 import com.ojp.modal.UploadedFile;
 import com.ojp.service.CandidateService;
 import com.ojp.validator.FileValidator;
@@ -38,7 +39,7 @@ public class UploadController {
 				.getAuthentication();
 		String userName = auth.getName();
 
-		PersonalDetail personalDetail = candidateService.getCandidateByUserName(userName);
+		PersonalDetail personalDetail = candidateService.getCandidatePersonalDetailByUserName(userName);
 		model.addAttribute("personalDetail", personalDetail);
 		return "/upload/personal";
 
@@ -48,7 +49,7 @@ public class UploadController {
 	private CandidateService candidateService;
 
 	@RequestMapping(value = "/upload/savePersonalDetails", method = RequestMethod.POST)
-	public String addStudent(
+	public String savePersonalDetails(
 			@Valid @ModelAttribute PersonalDetail personalDetail,
 			BindingResult result, ModelMap model, RedirectAttributes attr) {
 		Authentication auth = SecurityContextHolder.getContext()
@@ -73,7 +74,14 @@ public class UploadController {
 
 	@RequestMapping(value = "/upload/educational", method = RequestMethod.GET)
 	public String educational(ModelMap model) {
-		model.addAttribute("mo", "");
+		//model.addAttribute("mo", "");
+		Authentication auth = SecurityContextHolder.getContext()
+				.getAuthentication();
+		String userName = auth.getName();
+
+		EducationalDetail educationalDetail = candidateService.getCandidateEducationalDetailByUserName(userName);
+		model.addAttribute("educationalDetail", educationalDetail);
+
 		return "/upload/educational";
 
 	}
@@ -85,18 +93,11 @@ public class UploadController {
 		Authentication auth = SecurityContextHolder.getContext()
 				.getAuthentication();
 		String userName = auth.getName();
-		//Boolean pd = candidateService.saveCandidateEducationalDetails(educationalDetail, userName);
-		//if (pd == false) {
-			//attr.addFlashAttribute("error", "true");
-			//return "redirect:/upload/personal";
-		//}
-		System.out.println(educationalDetail.getDegreeInstitute());
-		System.out.println(educationalDetail.getDegreeCourseType());
-		System.out.println(educationalDetail.getDegree());
-		System.out.println(educationalDetail.getAissce());
-		System.out.println(educationalDetail.getAisscePercentage());
-		System.out.println(educationalDetail.getAisse());
-		System.out.println(educationalDetail.getAissePercentage());
+		Boolean pd = candidateService.saveCandidateEducationalDetails(educationalDetail, userName);
+		if (pd == false) {
+			attr.addFlashAttribute("error", "true");
+			return "redirect:/upload/educational";
+		}
 		return "redirect:/upload/professional";
 		// if (result.hasErrors()) {
 		// attr.addFlashAttribute("org.springframework.validation.BindingResult.command",
@@ -110,9 +111,41 @@ public class UploadController {
 	
 	@RequestMapping(value = "/upload/professional", method = RequestMethod.GET)
 	public String professional(ModelMap model) {
-		model.addAttribute("mo", "");
+		//model.addAttribute("mo", "");
+		Authentication auth = SecurityContextHolder.getContext()
+				.getAuthentication();
+		String userName = auth.getName();
+
+		ProfessionalDetail professionalDetail = candidateService.getCandidateProfessionalDetailByUserName(userName);
+		model.addAttribute("professionalDetail", professionalDetail);
+
 		return "/upload/professional";
 
+	}
+	
+	@RequestMapping(value = "/upload/saveProfessionalDetails", method = RequestMethod.POST)
+	public String saveProfessionalDetails(
+			@Valid @ModelAttribute ProfessionalDetail professionalDetail,
+			BindingResult result, ModelMap model, RedirectAttributes attr) {
+		Authentication auth = SecurityContextHolder.getContext()
+				.getAuthentication();
+		String userName = auth.getName();
+		Boolean pd = candidateService.saveCandidateProfessionalDetails(professionalDetail, userName);
+		if (pd == false) {
+			attr.addFlashAttribute("error", "true");
+			return "redirect:/upload/professional";
+		}
+		System.out.println(professionalDetail.getOrganization());
+		
+		return "redirect:/upload/upload_resume";
+		// if (result.hasErrors()) {
+		// attr.addFlashAttribute("org.springframework.validation.BindingResult.command",
+		// result);
+		// attr.addFlashAttribute("command", candidate);
+		// return "redirect:/candidate/home";
+		// }
+		// candidateService.addCandidate(candidate);
+		// return "redirect:/candidate/show";
 	}
 	
 	@RequestMapping(value = "/upload/upload_resume", method = RequestMethod.GET)

@@ -16,7 +16,15 @@
 	href="<%=request.getContextPath()%>/resources/css/bootstrap-datepicker.min.css" />
 <script type="text/javascript">
 	 	$(document).ready(function() {
-		 
+	 		var val = "<c:out value="${educationalDetail.batchFrom}"/>";
+			 $("#batchFrom option[value='"+val+"']").attr("selected","selected");
+			 var val2 = "<c:out value="${educationalDetail.batchTo}"/>";
+			 $("#batchTo option[value='"+val2+"']").attr("selected","selected");
+			 var val3 = "<c:out value="${educationalDetail.degreeCourseType}"/>";
+			 $("#degreeCourseType option[value='"+val3+"']").attr("selected","selected");
+			 var val4 = "<c:out value="${educationalDetail.degree}"/>";
+			 $("#degree option[value='"+val4+"']").attr("selected","selected");
+			 
 			$('#date-picker')
 	        .datepicker({
 	            format: 'mm/dd/yyyy',
@@ -222,86 +230,86 @@ login {
 							<div class="form-group">
 								<label for="email" class="sr-only">Mobile No</label> <input
 									type="text" name="degreeInstitute" id="degreeInstitute"
-									class="form-control" placeholder="Degree Institute" value=""
+									class="form-control" placeholder="Degree Institute" value="${educationalDetail.degreeInstitute}"
 									required>
 							</div>
 							<div class="form-group" style="padding-bottom: 30px;">
 								<div class="col-xs-6">
 								<select class="form-control" name="batchFrom" id="batchFrom">
-                            	<option selected="selected">Batch To</option>
-    							<option>1980</option>
-    							<option>1981</option>
-    							<option>1982</option>
-    							<option>1983</option>
-    							<option>1984</option>
-    							<option>1985</option>
-    							<option>1986</option>
-    							<option>1987</option>
-    							<option>1988</option>
-    							<option>1989</option>
-    							<option>1990</option>
-    							<option>1991</option>
-    							<option>1992</option>
-    							<option>1993</option>
-    							<option>1994</option>
-    							<option>1995</option>
-    							<option>1996</option>
-    							<option>1997</option>
-    							<option>1998</option>
-    							<option>1999</option>
-    							<option>2000</option>
-    							<option>2001</option>
-    							<option>2002</option>
-    							<option>2003</option>
-    							<option>2004</option>
-    							<option>2005</option>
-    							<option>2006</option>
-    							<option>2007</option>
-    							<option>2008</option>
-    							<option>2009</option>
-    							<option>2010</option>
-    							<option>2011</option>
-    							<option>2012</option>
-    							<option>2013</option>
+                            	<option selected="selected">Batch From</option>
+    							<option value="1980">1980</option>
+    							<option value="1981">1981</option>
+    							<option value="1982">1982</option>
+    							<option value="1983">1983</option>
+    							<option value="1984">1984</option>
+    							<option value="1985">1985</option>
+    							<option value="1986">1986</option>
+    							<option value="1987">1987</option>
+    							<option value="1988">1988</option>
+    							<option value="1989">1989</option>
+    							<option value="1990">1990</option>
+    							<option value="1991">1991</option>
+    							<option value="1992">1992</option>
+    							<option value="1993">1993</option>
+    							<option value="1994">1994</option>
+    							<option value="1995">1995</option>
+    							<option value="1996">1996</option>
+    							<option value="1997">1997</option>
+    							<option value="1998">1998</option>
+    							<option value="1999">1999</option>
+    							<option value="2000">2000</option>
+    							<option value="2001">2001</option>
+    							<option value="2002">2002</option>
+    							<option value="2003">2003</option>
+    							<option value="2004">2004</option>
+    							<option value="2005">2005</option>
+    							<option value="2006">2006</option>
+    							<option value="2007">2007</option>
+    							<option value="2008">2008</option>
+    							<option value="2009">2009</option>
+    							<option value="2010">2010</option>
+    							<option value="2011">2011</option>
+    							<option value="2012">2012</option>
+    							<option value="2013">2013</option>
   							</select>
 								</div>
 								<div class="col-xs-6">
-							<select class="form-control" name="batchTo" id="batchFrom">
+							<select class="form-control" name="batchTo" id="batchTo">
                             	<option selected="selected">Batch To</option>
-    							<option>1980</option>
-    							<option>1981</option>
-    							<option>1982</option>
-    							<option>1983</option>
-    							<option>1984</option>
-    							<option>1985</option>
-    							<option>1986</option>
-    							<option>1987</option>
-    							<option>1988</option>
-    							<option>1989</option>
-    							<option>1990</option>
-    							<option>1991</option>
-    							<option>1992</option>
-    							<option>1993</option>
-    							<option>1994</option>
-    							<option>1995</option>
-    							<option>1996</option>
-    							<option>1997</option>
-    							<option>1998</option>
-    							<option>1999</option>
-    							<option>2000</option>
-    							<option>2001</option>
-    							<option>2002</option>
-    							<option>2003</option>
-    							<option>2004</option>
-    							<option>2005</option>
-    							<option>2006</option>
-    							<option>2007</option>
-    							<option>2008</option>
-    							<option>2009</option>
-    							<option>2010</option>
-    							<option>2011</option>
-    							<option>2012</option>
-    							<option>2013</option>
+    							<option value="1980">1980</option>
+    							<option value="1981">1981</option>
+    							<option value="1982">1982</option>
+    							<option value="1983">1983</option>
+    							<option value="1984">1984</option>
+    							<option value="1985">1985</option>
+    							<option value="1986">1986</option>
+    							<option value="1987">1987</option>
+    							<option value="1988">1988</option>
+    							<option value="1989">1989</option>
+    							<option value="1990">1990</option>
+    							<option value="1991">1991</option>
+    							<option value="1992">1992</option>
+    							<option value="1993">1993</option>
+    							<option value="1994">1994</option>
+    							<option value="1995">1995</option>
+    							<option value="1996">1996</option>
+    							<option value="1997">1997</option>
+    							<option value="1998">1998</option>
+    							<option value="1999">1999</option>
+    							<option value="2000">2000</option>
+    							<option value="2001">2001</option>
+    							<option value="2002">2002</option>
+    							<option value="2003">2003</option>
+    							<option value="2004">2004</option>
+    							<option value="2005">2005</option>
+    							<option value="2006">2006</option>
+    							<option value="2007">2007</option>
+    							<option value="2008">2008</option>
+    							<option value="2009">2009</option>
+    							<option value="2010">2010</option>
+    							<option value="2011">2011</option>
+    							<option value="2012">2012</option>
+    							<option value="2013">2013</option>
   							</select>
 								</div>
 							</div>
@@ -309,17 +317,17 @@ login {
 							<div class="form-group">
 								<label for="email" class="sr-only">Mobile No</label> <input
 									type="text" name="aissce" id="aissce"
-									class="form-control" placeholder="AISSCE (12th) Board" value=""
+									class="form-control" placeholder="AISSCE (12th) Board" value="${educationalDetail.aissce}"
 									required>
 							</div>
 							
 							<div class="form-group">
 								<label for="email" class="sr-only">Mobile No</label> <input
 									type="text" name="aisse" id="aisse"
-									class="form-control" placeholder="AISSE (10th) Board" value=""
+									class="form-control" placeholder="AISSE (10th) Board" value="${educationalDetail.aisse}"
 									required>
 							</div>
-							<a class="btn btn-custom btn-lg btn-block" href="<c:url value='/upload/educational' />"><< back</a>
+							<a class="btn btn-custom btn-lg btn-block" href="<c:url value='/upload/personal' />"><< back</a>
 						</div>
 					</div>
 					<!-- /.col-xs-12 -->
@@ -328,47 +336,47 @@ login {
 							<div class="form-group">
 								<select class="form-control" name="degreeCourseType" id="degreeCourseType">
                             	<option selected="selected">Select Course Type</option>
-    							<option>Full Time</option>
-    							<option>Part Time</option>
-    							<option>Distance Learning Program</option>
-    							<option>Executive Program</option>
+    							<option value="Full Time">Full Time</option>
+    							<option value="Part Time">Part Time</option>
+    							<option value="Distance Learning Program">Distance Learning Program</option>
+    							<option value="Executive Program">Executive Program</option>
   							</select>
 							</div>
 							<div class="form-group">
 								<select class="form-control" name="degree" id="degree">
                             	<option selected="selected">Select Degree</option>
-    							<option>MBA / PGDM</option>
-    							<option>BBA</option>
-    							<option>CA</option>
-    							<option>CS</option>
-    							<option>LLB / LLM</option>
-    							<option>B Tech / BE</option>
-    							<option>BCA</option>
-    							<option>MCA</option>
-    							<option>MBBS</option>
-    							<option>BSc</option>
-    							<option>Bcom</option>
-    							<option>BA</option>
-    							<option>Bcom</option>
-    							<option>PhD</option>
-    							<option>MSc / MS / M Tech</option>
-    							<option>MA</option>
-    							<option>M Com</option>
-    							<option>Integrated Master Program</option>
-    							<option>Other</option>
+    							<option value="MBA / PGDM">MBA / PGDM</option>
+    							<option value="BBA">BBA</option>
+    							<option value="CA">CA</option>
+    							<option value="CS">CS</option>
+    							<option value="LLB / LLM">LLB / LLM</option>
+    							<option value="B Tech / BE">B Tech / BE</option>
+    							<option value="BCA">BCA</option>
+    							<option value="MCA">MCA</option>
+    							<option value="MBBS">MBBS</option>
+    							<option value="BSc">BSc</option>
+    							<option value="Bcom">Bcom</option>
+    							<option value="BA">BA</option>
+    							<option value="Bcom">Bcom</option>
+    							<option value="PhD">PhD</option>
+    							<option value="MSc / MS / M Tech">MSc / MS / M Tech</option>
+    							<option value="MA">MA</option>
+    							<option value="M Com">M Com</option>
+    							<option value="Integrated Master Program">Integrated Master Program</option>
+    							<option value="Other">Other</option>
   							</select>
 							</div>
 							<div class="form-group">
 								<label for="email" class="sr-only">Mobile No</label> <input
 									type="text" onkeypress='return event.charCode >= 48 && event.charCode <= 57' name="aisscePercentage" id="aisscePercentage"
-									class="form-control" placeholder="AISSCE Percentage" value=""
+									class="form-control" placeholder="AISSCE Percentage" value="${educationalDetail.aisscePercentage}"
 									required>
 							</div>
 							
 							<div class="form-group">
 								<label for="email" class="sr-only">Mobile No</label> <input
 									type="text" onkeypress='return event.charCode >= 48 && event.charCode <= 57' name="aissePercentage" id="aissePercentage"
-									class="form-control" placeholder="AISSE Percentage" value=""
+									class="form-control" placeholder="AISSE Percentage" value="${educationalDetail.aissePercentage}"
 									required>
 							</div>
 							

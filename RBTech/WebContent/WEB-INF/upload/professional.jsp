@@ -214,7 +214,7 @@ login {
 		<div class="container">
 			<div class="row" style="margin-top: 7%">
 				<form role="form"
-					action="<c:url value='/upload/saveEducationalDetails' />"
+					action="<c:url value='/upload/saveProfessionalDetails' />"
 					method="post" id="login-form" autocomplete="off">
 					<div class="col-xs-6">
 						<div class="form-wrap">
@@ -222,12 +222,12 @@ login {
 							<div class="form-group">
 								<label for="email" class="sr-only">Mobile No</label> <input
 									type="text" name="designation" id="designation"
-									class="form-control" placeholder="Designation" value=""
+									class="form-control" placeholder="Designation" value="${professionalDetail.designation}"
 									required>
 							</div>
 							<div class="form-group">
 								<input type="text" name="organization" id="organization"
-									class="form-control" placeholder="Organization" value=""
+									class="form-control" placeholder="Organization" value="${professionalDetail.organization}"
 									required>
 							</div>
 							<div class="form-group">
@@ -245,16 +245,16 @@ login {
 						<div class="form-wrap">
 							<div class="form-group">
 								<div class="input-group input-append date" id="date-picker">
-									<input type="text" class="form-control" name="date"
-										placeholder="Time period From" /> <span
+									<input type="text" class="form-control" name="experienceFrom"
+										placeholder="Time period From" value="${professionalDetail.experienceFrom}" /> <span
 										class="input-group-addon add-on"><span
 										class="glyphicon glyphicon-calendar"></span></span>
 								</div>
 							</div>
 							<div class="form-group">
 								<div class="input-group input-append date" id="date-picker2">
-									<input type="text" class="form-control" name="date"
-										placeholder="Time period To" /> <span
+									<input type="text" class="form-control" name="experienceTo"
+										placeholder="Time period To" value="${professionalDetail.experienceTo}" /> <span
 										class="input-group-addon add-on"><span
 										class="glyphicon glyphicon-calendar"></span></span>
 								</div>

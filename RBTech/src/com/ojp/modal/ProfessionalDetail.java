@@ -4,8 +4,8 @@ public class ProfessionalDetail {
 
 	private String designation;
 	private String organization;
-	private String from;
-	private String to;
+	private String experienceFrom;
+	private String experienceTo;
 	public String getDesignation() {
 		return designation;
 	}
@@ -18,17 +18,17 @@ public class ProfessionalDetail {
 	public void setOrganization(String organization) {
 		this.organization = organization;
 	}
-	public String getFrom() {
-		return from;
+	public String getExperienceFrom() {
+		return experienceFrom;
 	}
-	public void setFrom(String from) {
-		this.from = from;
+	public void setExperienceFrom(String experienceFrom) {
+		this.experienceFrom = experienceFrom;
 	}
-	public String getTo() {
-		return to;
+	public String getExperienceTo() {
+		return experienceTo;
 	}
-	public void setTo(String to) {
-		this.to = to;
+	public void setExperienceTo(String experienceTo) {
+		this.experienceTo = experienceTo;
 	}
 	
 }
