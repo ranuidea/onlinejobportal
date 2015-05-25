@@ -81,9 +81,9 @@ public class RegistrationController {
 	    if (approveOrDeny.equalsIgnoreCase("candidate")) {
 	    	return "redirect:/user/candidate_registration";
 	    } else if (approveOrDeny.equalsIgnoreCase("consaltancy")) {
-	    	return "/user/consaltancy_registration";
+	    	return "redirect:/user/consaltancy_registration";
 	    } else {
-	    	return "/user/company_registration";
+	    	return "redirect:/user/company_registration";
 	    }
 	}
 	
@@ -96,7 +96,7 @@ public class RegistrationController {
 	
 	@Autowired @Qualifier("authenticationManager") private AuthenticationManager authenticationManager;
 	@RequestMapping(value="/user/candidateRegister", method = RequestMethod.POST)
-	  public String show(@Valid @ModelAttribute("user") User user, @RequestParam("firstName") String firstName, @RequestParam("lastName") String lastName,BindingResult result, ModelMap model,
+	  public String authenticateCandidate(@Valid @ModelAttribute("user") User user, @RequestParam("firstName") String firstName, @RequestParam("lastName") String lastName,BindingResult result, ModelMap model,
 			  RedirectAttributes attr, HttpServletRequest request) {
 		
 		System.out.println(firstName);
@@ -118,5 +118,38 @@ public class RegistrationController {
 		
 		attr.addFlashAttribute("error", "true");
 		return "redirect:/user/candidate_registration";
+		}
+	
+	@RequestMapping(value = "/user/company_registration", method = RequestMethod.GET)
+	public String companyRegistration(Model model) {
+		if(!model.containsAttribute("user"))
+			model.addAttribute("user",new User());
+		      return "/user/company_registration";
+	}
+	
+	@RequestMapping(value="/user/companyRegister", method = RequestMethod.POST)
+	  public String authenticateCompany(@Valid @ModelAttribute("user") User user, @RequestParam("companyName") String companyName, @RequestParam("contactPerson") String contactPerson, @RequestParam("phoneNo") String phoneNo,BindingResult result, ModelMap model,
+			  RedirectAttributes attr, HttpServletRequest request) {
+		
+		System.out.println(companyName);
+		if (!result.hasErrors()) {
+	        User registeredUser = service.registerNewCompanyUserAccount(user, companyName, contactPerson, phoneNo);
+	        if(registeredUser==null)
+	        {
+	        	attr.addFlashAttribute("error", "true");
+	        	return "redirect:/user/company_registration";
+	        }
+	        System.out.println(user.getUserName()+"   "+user.getPassword());
+	        UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(user.getUserName(), user.getPassword());
+			Authentication auth = authenticationManager.authenticate(token);
+			if(auth.isAuthenticated()) {
+		        SecurityContextHolder.getContext().setAuthentication(auth);
+		        request.getSession().setAttribute(HttpSessionSecurityContextRepository.SPRING_SECURITY_CONTEXT_KEY, SecurityContextHolder.getContext());
+		        return "redirect:/company/home";
+		      }
+	    }
+		
+		attr.addFlashAttribute("error", "true");
+		return "redirect:/user/company_registration";
 		}
 }

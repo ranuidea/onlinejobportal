@@ -54,4 +54,10 @@ public class UserService {
         // the rest of the registration operation
     }
 	
+	@Transactional
+	public User registerNewCompanyUserAccount(User user, String companyName, String contactPerson, String phoneNo)
+	{
+		return repository.saveCompanyUser(user, companyName, contactPerson, phoneNo);
+	}
+	
 	}

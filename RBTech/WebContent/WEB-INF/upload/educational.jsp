@@ -25,6 +25,14 @@
 			 var val4 = "<c:out value="${educationalDetail.degree}"/>";
 			 $("#degree option[value='"+val4+"']").attr("selected","selected");
 			 
+			 $(".allownumericwithdecimal").on("keypress keyup blur",function (event) {
+		            //this.value = this.value.replace(/[^0-9\.]/g,'');
+		     $(this).val($(this).val().replace(/[^0-9\.]/g,''));
+		            if ((event.which != 46 || $(this).val().indexOf('.') != -1) && (event.which < 48 || event.which > 57)) {
+		                event.preventDefault();
+		            }
+		        });
+			 
 			$('#date-picker')
 	        .datepicker({
 	            format: 'mm/dd/yyyy',
@@ -196,15 +204,6 @@ login {
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse"
 				id="bs-example-navbar-collapse-1">
-				<ul class="nav navbar-nav">
-					<li class="active"><a href="#" class="color-font-nabbar">Candidates
-							<span class="sr-only">(current)</span>
-					</a></li>
-					<li><a href="#" class="color-font-nabbar">Companies</a></li>
-					<li><a href="#" class="color-font-nabbar">How it Works</a></li>
-					<li><a href="#" class="color-font-nabbar">Contact Us</a></li>
-					<li><a href="#" class="color-font-nabbar">About Us</a></li>
-				</ul>
 
 				<ul class="nav navbar-nav navbar-right">
 					<li style="font-size: large; margin-top: 4%;">Welcome
@@ -368,15 +367,15 @@ login {
 							</div>
 							<div class="form-group">
 								<label for="email" class="sr-only">Mobile No</label> <input
-									type="text" onkeypress='return event.charCode >= 48 && event.charCode <= 57' name="aisscePercentage" id="aisscePercentage"
-									class="form-control" placeholder="AISSCE Percentage" value="${educationalDetail.aisscePercentage}"
+									type="text" name="aisscePercentage" id="aisscePercentage"
+									class="form-control allownumericwithdecimal" placeholder="AISSCE Percentage" value="${educationalDetail.aisscePercentage}"
 									required>
 							</div>
 							
 							<div class="form-group">
 								<label for="email" class="sr-only">Mobile No</label> <input
 									type="text" onkeypress='return event.charCode >= 48 && event.charCode <= 57' name="aissePercentage" id="aissePercentage"
-									class="form-control" placeholder="AISSE Percentage" value="${educationalDetail.aissePercentage}"
+									class="form-control allownumericwithdecimal" placeholder="AISSE Percentage" value="${educationalDetail.aissePercentage}"
 									required>
 							</div>
 							

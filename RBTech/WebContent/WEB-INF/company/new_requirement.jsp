@@ -16,7 +16,7 @@
 	href="<%=request.getContextPath()%>/resources/css/bootstrap-datepicker.min.css" />
 <script type="text/javascript">
 	 	$(document).ready(function() {
-		 
+	 		
 		});
 	</script>
 <style>
@@ -30,12 +30,21 @@
 	color: white;
 }
 
+.top50 {
+	margin-top: 50px;
+}
+
+.error {
+	color: red;
+	font-weight: bold;
+}
+
 login {
 	padding-top: 50px
 }
 
 #login .form-wrap {
-	width: 70%;
+	width: 30%;
 	margin: 0 auto;
 	margin-top: 15%;
 }
@@ -182,21 +191,51 @@ login {
 
 		<section id="login">
 		<div class="container">
-			<div class="row" style="margin-top: 7%">
+			<div class="row">
+			
 				
-				<form:form method="post" enctype="multipart/form-data" modelAttribute="uploadedFile" action="/upload/fileUpload">
-
-					<div class="form-group">
-						<div class="col-xs-6">
-							<input type="file" name="file" class="form-control"/>
-							<form:errors path="file" />
-						</div>
-						<div class="col-xs-2">
-							<input type="submit" value="Upload" class="btn btn-custom btn-lg btn-block"/>
+					
+					<div class="col-xs-12">
+						<div class="form-wrap">
+							<h1>Post a new requirement</h1>
+							<form role="form"
+					action="<c:url value='/company/saveJobRequirement' />"
+					method="post" id="login-form" autocomplete="off">
+							<div class="form-group">
+								<label for="email" class="sr-only">Mobile No</label> <input
+									type="text" name="jobTitle" id="jobTitle"
+									class="form-control" placeholder="Job Title" value=""
+									required>
+							</div>
+							<div class="form-group">
+								
+								<select class="form-control" name="jobType" id="jobType" required>
+                            	<option selected="selected" value="">Job Type</option>
+    							<option value="Permanent">Permanent</option>
+    							<option value="Contractual">Contractual</option>
+    							<option value="Hourly">Hourly</option>
+  							</select>
+								
+							</div>
+							
+							<div class="form-group">
+								<label for="email" class="sr-only">Mobile No</label> <input
+									type="text" name="requiredSkill" id="requiredSkill"
+									class="form-control" placeholder="Required Skill" value=""
+									required>
+							</div>
+							
+							<div class="form-group">
+								<label for="email" class="sr-only">Mobile No</label>
+								<textarea class="form-control" rows="5" name="jobDescription" id="jobDescription" placeholder="Job Description" value="" required></textarea>
+							</div>
+							<input type="submit" id="btn-login"
+								class="btn btn-custom btn-lg btn-block" value="Save">
+							</form>
 						</div>
 					</div>
-
-				</form:form>  
+					<!-- /.col-xs-12 -->
+										<!-- /.col-xs-12 -->
 				
 			</div>
 			/////////
@@ -204,4 +243,4 @@ login {
 		</section>
 	</div>
 </body>
-</html>
+</html>	

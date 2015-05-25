@@ -142,6 +142,12 @@ login {
     color: inherit;
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
 
 </style>
 
@@ -170,14 +176,6 @@ login {
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse"
 					id="bs-example-navbar-collapse-1">
-					<ul class="nav navbar-nav">
-						<li class="active"><a href="#" class="color-font-nabbar">Candidates <span
-								class="sr-only">(current)</span></a></li>
-						<li><a href="#" class="color-font-nabbar">Companies</a></li>
-						<li><a href="#" class="color-font-nabbar">How it Works</a></li>
-						<li><a href="#" class="color-font-nabbar">Contact Us</a></li>
-						<li><a href="#" class="color-font-nabbar">About Us</a></li>
-					</ul>
 					
 					<ul class="nav navbar-nav navbar-right">
 						
@@ -207,7 +205,7 @@ login {
                         </div>
                         <div class="form-group">
                             <label for="email" class="sr-only">Mobile No</label>
-                            <input type="text" name="mobileNo" id="mobileNo" class="form-control" placeholder="Mobile No" value="${personalDetail.mobileNo}" required>
+                            <input type="number" max="9999999999" name="mobileNo" id="mobileNo" class="form-control" placeholder="Mobile No" value="${personalDetail.mobileNo}" required>
                         </div>
                         <div class="form-group">
                             <label for="key" class="sr-only">Gender</label>

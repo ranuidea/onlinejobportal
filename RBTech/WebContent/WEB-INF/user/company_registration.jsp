@@ -177,15 +177,19 @@ login {
 				%>
         	    
         	    
-                <h1>Get Started Now!</h1>
-                    <form:form role="form" action="/user/candidateRegister" method="post" id="login-form" autocomplete="off">
+                <h1>Lets get Started!</h1>
+                    <form:form role="form" action="/user/companyRegister" method="post" id="login-form" autocomplete="off">
                     	<div class="form-group">
                             <label for="firstName" class="sr-only">Email</label>
-                            <input type="text" name="firstName" id="firstName" class="form-control" placeholder="First Name" required>
+                            <input type="text" name="companyName" id="companyName" class="form-control" placeholder="Company Name" required>
                         </div>
                         <div class="form-group">
                             <label for="lastName" class="sr-only">Email</label>
-                            <input type="text" name="lastName" id="lastName" class="form-control" placeholder="Last Name" required>
+                            <input type="text" name="contactPerson" id="contactPerson" class="form-control" placeholder="Contact Person" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName" class="sr-only">Email</label>
+                            <input type="text" name="phoneNo" id="phoneNo" class="form-control" placeholder="Phone Number" required>
                         </div>
                         <div class="form-group">
                             <label for="userName" class="sr-only">Email</label>

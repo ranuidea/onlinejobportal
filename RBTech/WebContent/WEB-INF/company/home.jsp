@@ -1,28 +1,15 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <html>
-<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
 <script type="text/javascript">
-	/* $(document).ready(function() {
-		sendAjax();
-	});
-
-	function sendAjax() {
-
-		$.ajax({
-			url : "/RBTech/cont/person",
-			type : 'GET',
-			dataType : 'json',
-			data : "{\"name\":\"hmkcode\",\"id\":2}",
-			contentType : 'application/json',
-			mimeType : 'application/json',
-			success : function(data) {
-				alert(data.id + " " + data.name);
-			},
-			error : function(data, status, er) {
-				alert("error: " + data + " status: " + status + " er:" + er);
-			}
-		});
-	}
- */</script>
+</script>
 <style>
 .navbar-custom {
 	background-color: #003399;
@@ -38,12 +25,6 @@
 <title></title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet"
-	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script
-	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 </head>
 <body>
 	<div class="container-fluid"
@@ -66,9 +47,8 @@
 				<div class="collapse navbar-collapse"
 					id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
-						<li class="active"><a href="#" class="color-font-nabbar">Candidates <span
-								class="sr-only">(current)</span></a></li>
-						<li><a href="#" class="color-font-nabbar">Companies</a></li>
+						<li class="active"><a href="<c:url value='/company/new_requirement' />" class="color-font-nabbar">Post Requirement <span class="sr-only">(current)</span></a></li>
+						<!-- <li><a href="#" class="color-font-nabbar">Companies</a></li> -->
 						<!-- <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
@@ -92,7 +72,7 @@
         <button type="submit" class="btn btn-default">Submit</button>
       </form> -->
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="#" class="color-font-nabbar">Log In</a></li>
+						<!-- <li><a href="#" class="color-font-nabbar">Log In</a></li> -->
 						<!-- <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
@@ -103,7 +83,8 @@
             <li><a href="#">Separated link</a></li>
           </ul>
         </li> -->
-						<li><a href="#" class="color-font-nabbar">Sign Up</a></li>
+						<li style="font-size: large; margin-top: 4%;">Welcome ${userDetails.username}</li>
+						<li style="font-size: large;"><a href="<c:url value='/j_spring_security_logout' />" class="color-font-nabbar"><span></span> Logout</a></li>
 					</ul>
 				</div>
 				<!-- /.navbar-collapse -->

@@ -168,7 +168,8 @@ public class UploadController {
 		fileValidator.validate(uploadedFile, result);
 
 		String fileName = file.getOriginalFilename();
-
+		System.out.println(file.getContentType());
+		
 		if (result.hasErrors()) {
 			return "redirect:/upload/upload_resume";
 		}

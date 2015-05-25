@@ -188,15 +188,6 @@ login {
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse"
 				id="bs-example-navbar-collapse-1">
-				<ul class="nav navbar-nav">
-					<li class="active"><a href="#" class="color-font-nabbar">Candidates
-							<span class="sr-only">(current)</span>
-					</a></li>
-					<li><a href="#" class="color-font-nabbar">Companies</a></li>
-					<li><a href="#" class="color-font-nabbar">How it Works</a></li>
-					<li><a href="#" class="color-font-nabbar">Contact Us</a></li>
-					<li><a href="#" class="color-font-nabbar">About Us</a></li>
-				</ul>
 
 				<ul class="nav navbar-nav navbar-right">
 					<li style="font-size: large; margin-top: 4%;">Welcome
@@ -246,7 +237,7 @@ login {
 							<div class="form-group">
 								<div class="input-group input-append date" id="date-picker">
 									<input type="text" class="form-control" name="experienceFrom"
-										placeholder="Time period From" value="${professionalDetail.experienceFrom}" /> <span
+										placeholder="Time period From" value="${professionalDetail.experienceFrom}" readonly/> <span
 										class="input-group-addon add-on"><span
 										class="glyphicon glyphicon-calendar"></span></span>
 								</div>
@@ -254,7 +245,7 @@ login {
 							<div class="form-group">
 								<div class="input-group input-append date" id="date-picker2">
 									<input type="text" class="form-control" name="experienceTo"
-										placeholder="Time period To" value="${professionalDetail.experienceTo}" /> <span
+										placeholder="Time period To" value="${professionalDetail.experienceTo}" readonly/> <span
 										class="input-group-addon add-on"><span
 										class="glyphicon glyphicon-calendar"></span></span>
 								</div>

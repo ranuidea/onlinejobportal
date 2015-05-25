@@ -106,5 +106,55 @@ public class UserDAO {
 			return null;
 		}
 	}
+	
+	public User saveCompanyUser(User user, String companyName, String contactPerson, String phoneNo)
+	{
+		Connection conn = null;
+		PreparedStatement stmt = null;
+		try {
+			// STEP 2: Register JDBC driver
+			Class.forName("com.mysql.jdbc.Driver");
+
+			// STEP 3: Open a connection
+			System.out.println("Connecting to database...");
+			conn = DriverManager.getConnection(DB_URL, USER, PASS);
+
+			// STEP 4: Execute a query
+			System.out.println("Creating statement...");
+			String sql;
+			sql = "insert into users(username, password, enabled) values(?,?,?)";
+			stmt = conn.prepareStatement(sql);
+			stmt.setString(1, user.getUserName());
+			stmt.setString(2, user.getPassword());
+			stmt.setInt(3, 1);
+
+			// java.util.Date date = new Date();
+			// Timestamp timestamp = new Timestamp(date.getTime());
+			// stmt.setTimestamp(5, timestamp);
+
+			int rs = stmt.executeUpdate();
+
+			sql = "insert into user_roles(username, role) values(?,?)";
+			stmt = conn.prepareStatement(sql);
+			stmt.setString(1, user.getUserName());
+			stmt.setString(2, "ROLE_COMPANY");
+
+			int rs1 = stmt.executeUpdate();
+			
+			sql = "insert into company_details(username, company_name, contact_person, phone_no) values(?,?,?,?)";
+			stmt = conn.prepareStatement(sql);
+			stmt.setString(1, user.getUserName());
+			stmt.setString(2, companyName);
+			stmt.setString(3, contactPerson);
+			stmt.setString(4, phoneNo);
+
+			int rs2 = stmt.executeUpdate();
+
+			return user;
+		} catch (Exception e) {e.printStackTrace();
+			return null;
+		}
+
+	}
 
 }

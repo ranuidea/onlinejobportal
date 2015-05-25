@@ -9,6 +9,30 @@
 	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 
 <script type="text/javascript">
+$(document).ready(function(){
+	$(function() {
+      $('a.cred').click(function() {
+            var jobId = this.id.replace(/id/, ''); // Extract ID
+            //alert(id);
+            if (confirm('Are you sure you want to delete this?')) {
+            $.ajax({
+            	type: "POST",
+            	   url: '${pageContext.request.contextPath}/company/deleteJobRequirement',
+            	   data: jobId,
+            	   contentType: "application/json; charset=utf-8",
+            	   error: function() {
+            	      alert("failure");
+            	      return false;
+            	   },
+            	   success: function(data) {
+            	      window.location.href = "${pageContext.request.contextPath}"+data;
+            	   }
+            	});
+      }
+      });
+});
+});
+
 </script>
 <style>
 .navbar-custom {
@@ -47,7 +71,7 @@
 				<div class="collapse navbar-collapse"
 					id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
-						<li class="active"><a href="<c:url value='/upload/personal' />" class="color-font-nabbar">Upload Resume <span class="sr-only">(current)</span></a></li>
+						<li class="active"><a href="<c:url value='/company/new_requirement' />" class="color-font-nabbar">Post Requirement <span class="sr-only">(current)</span></a></li>
 						<!-- <li><a href="#" class="color-font-nabbar">Companies</a></li> -->
 						<!-- <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
@@ -92,6 +116,31 @@
 			<!-- /.container-fluid -->
 		</nav>
 
+	</div>
+	<div class="container" style="margin-top: 7%;">
+		<table class="table table-striped">
+			<thead>
+        <tr>
+            <th>Job ID</th>
+            <th>Job Title</th>
+            <th>Job Type</th>
+            <th>Skill</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    	<c:forEach var="listValue" items="${listRequirement}">
+				<tr>
+            		<td>${listValue.jobId}</td>
+            		<td>${listValue.jobTitle}</td>
+            		<td>${listValue.jobType}</td>
+            		<td>${listValue.requiredSkill}</td>
+            		<td><a id="${listValue.jobId}" href="#" class="cred">Delete</a></td>
+        		</tr>
+			</c:forEach>
+        
+    </tbody>
+		</table>
 	</div>
 </body>
 
