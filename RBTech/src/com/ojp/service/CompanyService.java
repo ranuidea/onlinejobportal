@@ -27,4 +27,14 @@ public class CompanyService {
 	{
 		return companyDAO.deleteJobRequirementDetails(jobId, userName);
 	}
+	
+	public JobRequirement getJobRequirementDetailsById(int jobId, String userName)
+	{
+		return companyDAO.getJobRequirementDetailsById(jobId, userName);
+	}
+	
+	public Boolean editJobRequirementDetails(JobRequirement jobRequirement, String userName)
+	{
+		return companyDAO.editJobRequirementDetails(jobRequirement, userName);
+	}
 }

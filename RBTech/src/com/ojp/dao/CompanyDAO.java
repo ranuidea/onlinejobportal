@@ -126,5 +126,72 @@ public class CompanyDAO {
 			}catch(Exception e){e.printStackTrace();return false;}
 
 	   }
+	   
+	   public JobRequirement  getJobRequirementDetailsById(int jobId, String userName)
+	   {
+		   Connection conn = null;
+			//Statement stmt = null;
+			PreparedStatement stmt = null;
+			try{
+		//STEP 2: Register JDBC driver
+	      Class.forName("com.mysql.jdbc.Driver");
+
+	      //STEP 3: Open a connection
+	      System.out.println("Connecting to database...");
+	      conn = DriverManager.getConnection(DB_URL,USER,PASS);
+
+	      //STEP 4: Execute a query
+	      System.out.println("Creating statement..."+userName);
+	      String sql;
+	      sql = "select * from job_requirement_details where job_id = ? and username=?";
+	      stmt = conn.prepareStatement(sql);
+	      stmt.setInt(1, jobId);
+	      stmt.setString(2, userName);
+	      ResultSet resultSet = stmt.executeQuery();
+	      //int jobId=0;
+	      JobRequirement jobRequirement = new JobRequirement();
+	      while(resultSet.next()) {
+	    	  jobRequirement.setJobId(resultSet.getInt("job_id"));
+	    	  jobRequirement.setJobTitle(resultSet.getString("job_title"));
+	    	  jobRequirement.setJobType(resultSet.getString("job_type"));
+	    	  jobRequirement.setRequiredSkill(resultSet.getString("required_skill"));
+	    	  jobRequirement.setJobDescription(resultSet.getString("job_description"));
+	      }
+	      
+	      return jobRequirement;
+			}catch(Exception e){e.printStackTrace();return null;}
+
+	   }
+	   
+	   public Boolean editJobRequirementDetails(JobRequirement jobRequirement, String userName)
+	   {
+		   Connection conn = null;
+			//Statement stmt = null;
+			PreparedStatement stmt = null;
+			try{
+		//STEP 2: Register JDBC driver
+	      Class.forName("com.mysql.jdbc.Driver");
+
+	      //STEP 3: Open a connection
+	      System.out.println("Connecting to database...");
+	      conn = DriverManager.getConnection(DB_URL,USER,PASS);
+
+	      //STEP 4: Execute a query
+	      System.out.println("Creating statement..."+userName);
+	      String sql;
+	      sql = "update job_requirement_details set job_title = ?, job_type = ?, required_skill = ?, job_description = ? where job_id = ? and username=?";
+	      stmt = conn.prepareStatement(sql);
+	      stmt.setString(1, jobRequirement.getJobTitle());
+	      stmt.setString(2, jobRequirement.getJobType());
+	      stmt.setString(3, jobRequirement.getRequiredSkill());
+	      stmt.setString(4, jobRequirement.getJobDescription());
+	      stmt.setInt(5, jobRequirement.getJobId());
+	      stmt.setString(6, userName);
+	      int resultSet = stmt.executeUpdate();
+	      
+	      return true;
+			}catch(Exception e){e.printStackTrace();return false;}
+
+	   }
 
 }

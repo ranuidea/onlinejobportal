@@ -93,5 +93,31 @@ public class CompanyController {
 		return "/company/all_requirements";
 		
 	}
+	
+	@RequestMapping(value = "/edit_requirement", method = RequestMethod.GET)
+	public String editRequirement(@RequestParam("jobId") int jobId, ModelMap model) {
+		System.out.println(jobId);
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		String userName = auth.getName();
+		JobRequirement jobRequirement = companyService.getJobRequirementDetailsById(jobId, userName);
+		model.addAttribute("jobRequirement", jobRequirement);
+		return "/company/edit_requirement";
+	}
+	
+	@RequestMapping(value = "/editJobRequirement", method = RequestMethod.POST)
+	public String editCompanyRequirement(
+			@Valid @ModelAttribute JobRequirement jobRequirement,
+			BindingResult result, ModelMap model, RedirectAttributes attr) {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		String userName = auth.getName();
+		Boolean pd = companyService.editJobRequirementDetails(jobRequirement, userName);
+		if (pd == false) {
+			attr.addFlashAttribute("error", "true");
+			return "redirect:/company/edit_requirement";
+		}
+		System.out.println(jobRequirement.getJobId());
+		return "redirect:/company/all_requirements";
+		
+	}
 
 }
