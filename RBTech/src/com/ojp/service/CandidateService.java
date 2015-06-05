@@ -56,4 +56,9 @@ public class CandidateService {
 	{
 		return candidateDAO.getCandidateProfessionalDetailByUserName(userName);
 	}
+	
+	public Boolean saveUploadResume(String fileName, String userName)
+	{
+		return candidateDAO.saveUploadResume(fileName, userName);
+	}
 }

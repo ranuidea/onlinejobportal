@@ -7,6 +7,8 @@
 	src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>	
 
 <script type="text/javascript">
 $(document).ready(function(){
@@ -70,6 +72,24 @@ $(document).ready(function(){
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse"
 					id="bs-example-navbar-collapse-1">
+					
+					<ul class="nav navbar-nav">
+						<%-- <li class="active"><a href="<c:url value='/company/new_requirement' />" class="color-font-nabbar">Post Requirement <span class="sr-only">(current)</span></a></li> --%>
+						 <li class="dropdown active">
+          					<a href="#" class="color-font-nabbar dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Requirement <span class="caret"></span></a>
+          					<ul class="dropdown-menu" role="menu">
+            					<li><a href="<c:url value='/company/new_requirement' />">Post</a></li>
+					            <li><a href="<c:url value='/company/all_requirements' />">View All</a></li>
+					            <li><a href="#">Something else here</a></li>
+					            <li class="divider"></li>
+					            <li><a href="#">Separated link</a></li>
+					            <li class="divider"></li>
+					            <li><a href="#">One more separated link</a></li>
+          					</ul>
+        				</li>
+						<li><a href="#" class="color-font-nabbar">About Us</a></li>
+					</ul>
+					
 					<ul class="nav navbar-nav">
 						<li class="active"><a href="<c:url value='/company/new_requirement' />" class="color-font-nabbar">Post Requirement <span class="sr-only">(current)</span></a></li>
 						<!-- <li><a href="#" class="color-font-nabbar">Companies</a></li> -->
@@ -126,6 +146,7 @@ $(document).ready(function(){
             <th>Job Type</th>
             <th>Skill</th>
             <th></th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -135,6 +156,7 @@ $(document).ready(function(){
             		<td>${listValue.jobTitle}</td>
             		<td>${listValue.jobType}</td>
             		<td>${listValue.requiredSkill}</td>
+            		<td><a href="<c:url value='/company/edit_requirement'><c:param name="jobId" value="${listValue.jobId}"/></c:url>">Edit</a></td>
             		<td><a id="${listValue.jobId}" href="#" class="cred">Delete</a></td>
         		</tr>
 			</c:forEach>

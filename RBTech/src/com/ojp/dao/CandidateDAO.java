@@ -331,5 +331,41 @@ public class CandidateDAO {
       return professionalDetail;
 
 	}
+	
+	public Boolean saveUploadResume(String fileName, String userName)
+	{
+		Connection conn = null;
+		//Statement stmt = null;
+		PreparedStatement stmt = null;
+		try{
+	//STEP 2: Register JDBC driver
+      Class.forName("com.mysql.jdbc.Driver");
+
+      //STEP 3: Open a connection
+      System.out.println("Connecting to database...");
+      conn = DriverManager.getConnection(DB_URL,USER,PASS);
+
+      //STEP 4: Execute a query
+      System.out.println("Creating statement..."+userName);
+      String sql;
+      sql = "update upload_resume set file_name = ? where username = ?";
+      stmt = conn.prepareStatement(sql);
+      stmt.setString(1, fileName);
+      stmt.setString(2, userName);
+      
+      int rs = stmt.executeUpdate();
+      if(rs==0)
+      {
+    	  sql = "insert into upload_resume(username, file_name) values(?, ?)";
+          stmt = conn.prepareStatement(sql);
+          stmt.setString(1, userName);
+          stmt.setString(2, fileName); 
+          
+          int rs1 = stmt.executeUpdate();
+      }
+      return true;
+		}catch(Exception e){e.printStackTrace();return false;}
+
+	}
 
 }

@@ -7,7 +7,9 @@
 	src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	
 <script type="text/javascript">
 </script>
 <style>
@@ -47,22 +49,19 @@
 				<div class="collapse navbar-collapse"
 					id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
-						<li class="active"><a href="<c:url value='/company/new_requirement' />" class="color-font-nabbar">Post Requirement <span class="sr-only">(current)</span></a></li>
-						<!-- <li><a href="#" class="color-font-nabbar">Companies</a></li> -->
-						<!-- <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-            <li class="divider"></li>
-            <li><a href="#">One more separated link</a></li>
-          </ul>
-        </li> -->
-						<li><a href="#" class="color-font-nabbar">How it Works</a></li>
-						<li><a href="#" class="color-font-nabbar">Contact Us</a></li>
+						<%-- <li class="active"><a href="<c:url value='/company/new_requirement' />" class="color-font-nabbar">Post Requirement <span class="sr-only">(current)</span></a></li> --%>
+						 <li class="dropdown active">
+          					<a href="#" class="color-font-nabbar dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Requirement <span class="caret"></span></a>
+          					<ul class="dropdown-menu" role="menu">
+            					<li><a href="<c:url value='/company/new_requirement' />">Post</a></li>
+					            <li><a href="<c:url value='/company/all_requirements' />">View All</a></li>
+					            <li><a href="#">Something else here</a></li>
+					            <li class="divider"></li>
+					            <li><a href="#">Separated link</a></li>
+					            <li class="divider"></li>
+					            <li><a href="#">One more separated link</a></li>
+          					</ul>
+        				</li>
 						<li><a href="#" class="color-font-nabbar">About Us</a></li>
 					</ul>
 					<!-- <form class="navbar-form navbar-left" role="search">
@@ -72,17 +71,7 @@
         <button type="submit" class="btn btn-default">Submit</button>
       </form> -->
 					<ul class="nav navbar-nav navbar-right">
-						<!-- <li><a href="#" class="color-font-nabbar">Log In</a></li> -->
-						<!-- <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-          </ul>
-        </li> -->
+						
 						<li style="font-size: large; margin-top: 4%;">Welcome ${userDetails.username}</li>
 						<li style="font-size: large;"><a href="<c:url value='/j_spring_security_logout' />" class="color-font-nabbar"><span></span> Logout</a></li>
 					</ul>

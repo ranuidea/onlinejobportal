@@ -5,6 +5,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.Date;
 
 import javax.validation.Valid;
 
@@ -168,7 +169,13 @@ public class UploadController {
 		fileValidator.validate(uploadedFile, result);
 
 		String fileName = file.getOriginalFilename();
-		System.out.println(file.getContentType());
+		
+		Authentication auth = SecurityContextHolder.getContext()
+				.getAuthentication();
+		String userName = auth.getName();
+		String arr [] = fileName.split("\\.");
+		fileName = userName+""+new Date().getTime()+"."+arr[1];
+		System.out.println(fileName);
 		
 		if (result.hasErrors()) {
 			return "redirect:/upload/upload_resume";
@@ -189,6 +196,7 @@ public class UploadController {
 				outputStream.write(bytes, 0, read);
 			}
 			outputStream.close();
+			candidateService.saveUploadResume(fileName, userName);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
